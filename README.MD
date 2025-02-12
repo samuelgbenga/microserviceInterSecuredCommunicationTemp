@@ -95,6 +95,21 @@ to each entry point on the classes
 ## let us set up the authentication service
 i will skip the coding process for this but i will show where significant steps or inclusing is needed.
 
+## i will not be going into detail coding on how to setup mail service or authentiction service.
+## what i will be showing are the essential codes the needs modifying which is not much though. especially in the
+## security and how your dto should look like. 
+- for the security we will be generating the jwt on the authentication service normal traditional security settings
+- can get this done.
+- While for the mailing service we will make few adjustment since it would be generating a jwt but rather validating it
+- and extracting claims and also would not need an explicit userDetailsService map to any user since there is no entity.
+- the userdetails info would be extracted from the jwt token. and send to the security context.
+- While for the dto. the standard mailindto we will be using. should be reflecting for both service authentication service and 
+- mailing service which a record that contains to, subject, fullName, and event.
+- Here are simple template to get you started on seting up a mail-service and a the authentication service respectively.
+- i have added the link to the actual complete code below so you can compare and contrast and understand the changes made.
+- not withstanding i will present the changes which are essential for this setup. which i already explain though.
+- 
+
 
 
 

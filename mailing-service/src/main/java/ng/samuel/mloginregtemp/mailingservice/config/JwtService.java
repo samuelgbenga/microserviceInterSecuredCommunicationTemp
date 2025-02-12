@@ -34,23 +34,13 @@ public class JwtService {
 
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(properties.getJwtSecret());
-
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
     public <T> T getClaim(String token, Function<Claims, T> claimsResolver) {
-
         final Claims claims = extractAllClaims(token);
-
         return claimsResolver.apply(claims);
     }
-
-
-//    public Boolean isTokenValid(String token, UserDetails userDetails){
-//        final String userName = extractUsername(token);
-//
-//        return (userName.equals(userDetails.getUsername())) && !isTokenExpired(token);
-//    }
 
     public String extractUsername(String token){
         return getClaim(token, Claims::getSubject);
